@@ -3,7 +3,7 @@ $(document).ready(function() {
 
     $('button#pull').click(function() {
         $.ajax({
-            url: "deploy.php",
+            url: "tools.php",
             type: "POST",
             data: {"action":"pull"},
             success: function(data){
@@ -15,7 +15,7 @@ $(document).ready(function() {
 
     $('button#deploy').click(function() {
         $.ajax({
-            url: "deploy.php",
+            url: "tools.php",
             type: "POST",
             data: {"action":"deploy"},
             success: function(data){
