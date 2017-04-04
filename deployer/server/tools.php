@@ -30,7 +30,7 @@ function do_($cmd)
 
 function pull()
 {
-    $salida = shell_exec('git pull --rebase 2>&1');
+    $salida = shell_exec('sudo git pull --rebase 2>&1');
     echo "<pre>$salida</pre>";
 }
 
