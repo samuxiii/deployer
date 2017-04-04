@@ -1,9 +1,13 @@
+/*
+ * TODO: the url server should be in a config file 
+ */
+url_server = "http://srv.betawrapper.com/lab/deployer/server/tools.php";
 
 $(document).ready(function() {
 
     $('button#pull').click(function() {
         $.ajax({
-            url: "tools.php",
+            url: url_server,
             type: "POST",
             data: {"action":"pull"},
             success: function(data){
@@ -15,7 +19,7 @@ $(document).ready(function() {
 
     $('button#deploy').click(function() {
         $.ajax({
-            url: "tools.php",
+            url: url_server,
             type: "POST",
             data: {"action":"deploy"},
             success: function(data){
