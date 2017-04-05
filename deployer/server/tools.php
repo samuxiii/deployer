@@ -7,7 +7,7 @@ $language_dir = "{$root}/www/language";
 // function selector
 if(isset($_POST['action']) /*&& function_exists($_POST['action'])*/) {
     $action = $_POST['action'];
-    echo "Selecting function!";
+    echo "Response:\n";
     switch($action) {
         case 'pull':
             pull();
