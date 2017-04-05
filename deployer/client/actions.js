@@ -29,4 +29,16 @@ $(document).ready(function() {
         });
     });
 
+    $('button#update').click(function() {
+        $.ajax({
+            url: url_server,
+            type: "POST",
+            data: {"action":"update"},
+            success: function(data){
+                $('div#result-update').html(data);
+                console.log(data);
+            }
+        });
+    });
+
 });

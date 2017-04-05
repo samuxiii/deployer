@@ -6,5 +6,5 @@
 In order to perform 'git' operations in a correct way, the apache user has to be included into *sudoers*.
 _Example_:
 ```
-www-data ALL = NOPASSWD: /usr/bin/git
+www-data ALL = (www-data) NOPASSWD: /usr/bin/git
 ```
