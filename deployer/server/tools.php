@@ -9,9 +9,9 @@ class Tools
         $this->print_($output);
     }
 
-    private function print_($text)
+    function print_($text)
     {
-        echo "<pre>$text</pre>";
+        echo "<pre>Response:<br>$text</pre>";
     }
 
     //public
@@ -36,7 +36,6 @@ $tool = new Tools;
 // function selector
 if(isset($_POST['action']) /*&& function_exists($_POST['action'])*/) {
     $action = $_POST['action'];
-    echo "Response:\n";
     switch($action) {
         case 'pull':
             $tool->pull();
@@ -48,7 +47,7 @@ if(isset($_POST['action']) /*&& function_exists($_POST['action'])*/) {
             $tool->update();
             break;
         default:
-            echo "Access denied for this function!";
+            $tool->print_("Access denied for this function!");
     }
 }
 
