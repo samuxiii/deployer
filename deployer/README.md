@@ -3,6 +3,11 @@
 * 'server' folder must be placed under the '/var/www' or any public folder. It uses php.
 * 'client' folder can be placed in the same server. If you choose another one you will have to be care of the url callbacks.
 
+```
+Note:
+Currently the implemented 'update' option forces to store the whole git folder under /var/www
+```
+
 ### Access the application
 * Open browser http://localhost/client/tools.html
 
