@@ -26,9 +26,9 @@ class Tools
     }
 
     //bring the changes from certain git project 
-    function pull()
+    function pull($token)
     {
-        $this->print_("Not implemented yet");
+        $this->print_("Not implemented yet, but {$token}");
     }
 
     //copy to the correct apache folder and publish
@@ -48,7 +48,7 @@ if(isset($_POST['action']) /*&& function_exists($_POST['action'])*/) {
     $action = $_POST['action'];
     switch($action) {
         case 'pull':
-            $tool->pull();
+            $tool->pull($_POST['token']);
             break;
         case 'deploy':
             $tool->deploy();

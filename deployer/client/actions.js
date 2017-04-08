@@ -1,20 +1,31 @@
 /*
  * TODO: the url server should be in a config file 
  */
-url_server = "http://srv.betawrapper.com/lab/deployer/server/tools.php";
+var url_server = "http://srv.betawrapper.com/lab/deployer/server/tools.php";
+var url_oauth = "http://srv.betawrapper.com/bit/access.php"
 
 $(document).ready(function() {
 
     $('button#pull').click(function() {
+        function call_pull(token) {
+            $.ajax({
+                url: url_server,
+                type: "POST",
+                data: { "action": "pull", "token": token },
+                success: function (data) {
+                    $('div#result-pull').html(data);
+                    console.log(data);
+                }
+            });
+        }
+
         $.ajax({
-            url: url_server,
-            type: "POST",
-            data: {"action":"pull"},
-            success: function(data){
-                $('div#result-pull').html(data);
-                console.log(data);
+            url: url_oauth,
+            type: "GET",
+            success: function (token) {
+                call_pull(token);
             }
-        });
+        });                                                                               
     });
 
     $('button#deploy').click(function() {
