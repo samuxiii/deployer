@@ -2,30 +2,53 @@
  * TODO: the url server should be in a config file 
  */
 var url_server = "http://srv.betawrapper.com/lab/deployer/server/tools.php";
-var url_oauth = "http://srv.betawrapper.com/bit/access.php"
+var url_oauth = "http://srv.betawrapper.com/bit/access.php";
+var token = "";
 
 $(document).ready(function() {
 
-    $('button#pull').click(function() {
-        function call_pull(token) {
-            $.ajax({
-                url: url_server,
-                type: "POST",
-                data: { "action": "pull", "token": token },
-                success: function (data) {
-                    $('div#result-pull').html(data);
-                    console.log(data);
-                }
-            });
-        }
+    //initialize tooltip and interface
+    $('[data-toggle="tooltip"]').tooltip();
+    disableButtons();
 
+    /* oauth token handlers*/
+    function storeToken(token_) {
+        token = token_;
+        console.log(token);
+    }
+
+    $('#login').click(function() {
         $.ajax({
             url: url_oauth,
             type: "GET",
             success: function (token) {
-                call_pull(token);
+                storeToken(token);
+                enableButtons();
+                $('#login').text('Refresh');
             }
-        });                                                                               
+        });
+    });
+
+    /* button behaviours */
+    function enableButtons() {
+        $('button').prop('disabled', false);
+    }
+
+    function disableButtons() {
+        $('button').prop('disabled', true);
+    }
+
+    /* button functions */
+    $('button#pull').click(function() {
+        $.ajax({
+            url: url_server,
+            type: "POST",
+            data: { "action": "pull", "token": token },
+            success: function (data) {
+                $('div#result-pull').html(data);
+                console.log(data);
+            }
+        });
     });
 
     $('button#deploy').click(function() {
