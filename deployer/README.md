@@ -17,3 +17,7 @@ _Example_:
 ```
 www-data ALL = (www-data) NOPASSWD: /usr/bin/git
 ```
+
+#### ToDo's
+* Also it's going to be necessary to create a service which retrieves the correct oauth token from the git service.
+* Creating a config.json, config.php or both so that the urls definitions can be stored and secured.
