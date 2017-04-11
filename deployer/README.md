@@ -20,4 +20,8 @@ www-data ALL = (www-data) NOPASSWD: /usr/bin/git
 
 #### ToDo's
 * Also it's going to be necessary to create a service which retrieves the correct oauth token from the git service.
+  + _Note:_ The current approach is a php file that retrieves the token according to the configuration.
 * Creating a config.json, config.php or both so that the urls definitions can be stored and secured.
+* UX:
+ + Upon entering, click 'log in' to gain access in git service.
+ + Click in buttons to perform the options
