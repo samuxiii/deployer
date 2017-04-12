@@ -10,6 +10,15 @@ $(document).ready(function() {
     //initialize tooltip and interface
     $('[data-toggle="tooltip"]').tooltip();
     disableButtons();
+    $.ajax({
+            url: url_oauth,
+            type: "GET",
+            success: function (token) {
+                storeToken(token);
+                enableButtons();
+                $('#login').text('Refresh');
+            }
+    });
 
     /* oauth token handlers*/
     function storeToken(token_) {
@@ -18,15 +27,7 @@ $(document).ready(function() {
     }
 
     $('#login').click(function() {
-        $.ajax({
-            url: url_oauth,
-            type: "GET",
-            success: function (token) {
-                storeToken(token);
-                enableButtons();
-                $('#login').text('Refresh');
-            }
-        });
+        window.location.href = url_oauth;
     });
 
     /* button behaviours */
