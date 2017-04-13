@@ -5,3 +5,8 @@ pre {
 .btn {
     margin: 2px;
 }
+
+#login {
+    margin-top: 10px;
+    float:right;
+}
