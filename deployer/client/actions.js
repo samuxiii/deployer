@@ -37,6 +37,7 @@ $(document).ready(function() {
 
     function disableButtons() {
         $('button').prop('disabled', true);
+        $('#login').prop('disabled', false);
     }
 
     /* button functions */
