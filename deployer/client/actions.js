@@ -16,7 +16,7 @@ $(document).ready(function() {
             success: function (token) {
                 storeToken(token);
                 enableButtons();
-                $('#login').text('Refresh');
+                $('#login').toggleClass('glyphicon glyphicon-refresh').text('Refresh');
             }
     });
 
