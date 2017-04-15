@@ -9,7 +9,7 @@ Currently the implemented 'update' option forces to store the whole git folder u
 ```
 
 ### Access the application
-* Open browser http://localhost/client/tools.html
+* Open browser http://localhost/lab/client/tools.html
 
 ### Important
 In order to perform 'git' operations in a correct way, the apache user has to be included into *sudoers*.
@@ -23,5 +23,6 @@ www-data ALL = (www-data) NOPASSWD: /usr/bin/git
   + _Note:_ The current approach is a php file that retrieves the token according to the configuration.
 * Creating a config.json, config.php or both so that the urls definitions can be stored and secured.
 * UX
-  + Upon entering, click 'log in' to gain access in git service.
-  + Click in buttons to perform the options
+  + Upon entering, click 'log in' in order to gain access in git service and enable the operation buttons.
+  + Click in buttons to perform the options.
+  + Find a way to ease the procedure to add a new project.
