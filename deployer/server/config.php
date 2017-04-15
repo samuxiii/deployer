@@ -1,6 +1,6 @@
 <?php
 
-$url = 'http://';
+$url = 'http://domain.com';
 
 return (object) array(
     'url_home' => $url.'/lab/deployer/client/tools.html',
