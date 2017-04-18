@@ -1,8 +1,8 @@
 /*
  * TODO: the url server should be in a config file 
  */
-var url_server = "http://srv.betawrapper.com/lab/deployer/server/tools.php";
-var url_oauth = "http://srv.betawrapper.com/bit/access.php";
+var url_server = "../server/tools.php";
+var url_oauth = "../server/access.php";
 var token = "";
 
 $(document).ready(function() {
