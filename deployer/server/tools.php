@@ -42,9 +42,13 @@ class Tools
 $tool = new Tools;
 
 /*
+ * TODO: verify if config.php is initialized to continue..
+ */
+
+/*
  * According to the action received the related Tools method is called
  */
-if(isset($_POST['action']) /*&& function_exists($_POST['action'])*/) {
+if (isset($_POST['action'])) {
     $action = $_POST['action'];
     switch($action) {
         case 'pull':
@@ -57,7 +61,7 @@ if(isset($_POST['action']) /*&& function_exists($_POST['action'])*/) {
             $tool->update();
             break;
         default:
-            $tool->print_("Access denied for this function!");
+            $tool->print_("Access denied. Function not recognized!");
     }
 }
 

@@ -4,6 +4,7 @@ require '/var/www/bit/vendor/autoload.php';
 
 $config = include('config.php');
 $url_client = $config->url_home;
+
 $provider = new Stevenmaguire\OAuth2\Client\Provider\Bitbucket([
     'clientId'          => $config->bitbucket['clientId'],
     'clientSecret'      => $config->bitbucket['clientSecret'],
