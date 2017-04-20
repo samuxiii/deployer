@@ -1,6 +1,7 @@
 ## Installation
 * You will need a http server with php support (assumption: the root directory is /var/www)
 * 'server' folder must be placed under the '/var/www' or any public folder. It uses php.
+  + _Note:_ edit the 'config.example.php' file with your specifications and rename it as 'config.php'.
 * 'client' folder can be placed in the same server. If you choose another one you will have to be care of the url callbacks.
 
 ```
