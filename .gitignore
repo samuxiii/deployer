@@ -1,3 +1,7 @@
 # configuration file #
 ######################
 config.php
+
+# dependencies by composer #
+############################
+deployer/server/vendor/*

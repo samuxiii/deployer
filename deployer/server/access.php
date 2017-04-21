@@ -1,6 +1,6 @@
 <?php
 //Stevenmaguire lib dependency
-require '/var/www/bit/vendor/autoload.php';
+require __DIR__."/vendor/autoload.php";
 
 $config = include('config.php');
 $url_client = $config->url_home;
