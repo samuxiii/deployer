@@ -38,9 +38,9 @@ class Tools
     }
 
     //copy to the correct apache folder and publish
-    function deploy()
+    function deploy($path)
     {
-        $this->print_("Not implemented yet");
+        $this->print_("You can access by this <a href='../server/{$path}'>link</a>");
     }
 }
 
@@ -71,7 +71,7 @@ if (isset($_POST['action'])) {
             $tool->pull($project);
             break;
         case 'deploy':
-            $tool->deploy();
+            $tool->deploy($project);
             break;
         case 'update':
             $tool->update();
