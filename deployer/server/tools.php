@@ -25,10 +25,16 @@ class Tools
         $this->do_('git pull --rebase');
     }
 
-    //bring the changes from certain git project 
-    function pull($token)
+    //clone git project 
+    function clone($path, $repo, $token)
     {
-        $this->print_("Not implemented yet, but {$token}");
+        $this->do_("git clone https://x-token-auth:{$token}@bitbucket.org/{$repo} {$path}");
+    }
+
+    //bring the changes from git project 
+    function pull($path)
+    {
+        $this->do_("git -C {$path} pull --rebase");
     }
 
     //copy to the correct apache folder and publish
@@ -44,6 +50,13 @@ $tool = new Tools;
 /*
  * TODO: verify if config.php is initialized to continue..
  */
+ 
+$config = include('config.php');
+$deploy_path = $config->deploy_path;
+
+//for the time being the project definition is here
+$project = $deploy_path."/language/";
+$repo = "BetWrapTeam/betawrapper.git";
 
 /*
  * According to the action received the related Tools method is called
@@ -51,8 +64,11 @@ $tool = new Tools;
 if (isset($_POST['action'])) {
     $action = $_POST['action'];
     switch($action) {
+        case 'clone':
+            $tool->clone($project, $repo, $_POST['token']);
+            break;
         case 'pull':
-            $tool->pull($_POST['token']);
+            $tool->pull($project);
             break;
         case 'deploy':
             $tool->deploy();

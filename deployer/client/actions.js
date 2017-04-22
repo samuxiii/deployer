@@ -41,11 +41,23 @@ $(document).ready(function() {
     }
 
     /* button functions */
+    $('button#clone').click(function() {
+        $.ajax({
+            url: url_server,
+            type: "POST",
+            data: { "action": "clone", "token": token },
+            success: function (data) {
+                $('div#result-clone').html(data);
+                console.log(data);
+            }
+        });
+    });
+
     $('button#pull').click(function() {
         $.ajax({
             url: url_server,
             type: "POST",
-            data: { "action": "pull", "token": token },
+            data: { "action": "pull" },
             success: function (data) {
                 $('div#result-pull').html(data);
                 console.log(data);
