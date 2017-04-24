@@ -1,4 +1,7 @@
 <?php
+
+define("BLOCKTIME", 3000);
+
 //Stevenmaguire lib dependency
 require __DIR__."/vendor/autoload.php";
 
@@ -12,8 +15,9 @@ $provider = new Stevenmaguire\OAuth2\Client\Provider\Bitbucket([
 ]);
 
 session_start();
+$timeslot_now = round(time()/BLOCKTIME);
 
-if (isset($_SESSION['token'])) {
+if (isset($_SESSION['token']) && ($_SESSION['timeslot'] == $timeslot_now)) {
     echo $_SESSION['token'];
     return;
 }
@@ -40,6 +44,8 @@ if (!isset($_GET['code'])) {
     ]);
 
     $_SESSION['token'] = $token->getToken();
+    $_SESSION['timeslot'] = round(time()/BLOCKTIME);
+    
     echo "<a href='$backURL'>back</a>";
     header('Location: '.$url_client);
     return;
