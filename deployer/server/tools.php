@@ -32,9 +32,9 @@ class Tools
     }
 
     //bring the changes from git project 
-    function pull($path)
+    function pull($path, $repo, $token)
     {
-        $this->do_("git -C {$path} pull --rebase");
+        $this->do_("git -C {$path} pull --rebase https://x-token-auth:{$token}@bitbucket.org/{$repo} master");
     }
 
     //copy to the correct apache folder and publish
@@ -68,7 +68,7 @@ if (isset($_POST['action'])) {
             $tool->clone($project, $repo, $_POST['token']);
             break;
         case 'pull':
-            $tool->pull($project);
+            $tool->pull($project, $repo, $_POST['token']);
             break;
         case 'deploy':
             $tool->deploy($project);

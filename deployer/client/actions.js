@@ -57,7 +57,7 @@ $(document).ready(function() {
         $.ajax({
             url: url_server,
             type: "POST",
-            data: { "action": "pull" },
+            data: { "action": "pull", "token": token },
             success: function (data) {
                 $('div#result-pull').html(data);
                 console.log(data);
