@@ -14,6 +14,7 @@ $provider = new Stevenmaguire\OAuth2\Client\Provider\Bitbucket([
     'redirectUri'       => $config->bitbucket['redirectUri']
 ]);
 
+/* administering session vars */
 session_start();
 $timeslot_now = round(time()/BLOCKTIME);
 
@@ -21,7 +22,11 @@ if (isset($_SESSION['token']) && ($_SESSION['timeslot'] == $timeslot_now)) {
     echo $_SESSION['token'];
     return;
 }
+else {
+    session_unset();
+}
 
+/* retrieving token procedure */
 if (!isset($_GET['code'])) {
 
     // If we don't have an authorization code then get one
