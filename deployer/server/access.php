@@ -22,8 +22,9 @@ if (isset($_SESSION['token']) && ($_SESSION['timeslot'] == $timeslot_now)) {
     echo $_SESSION['token'];
     return;
 }
-else {
-    session_unset();
+elseif (isset($_SESSION['token'])) {
+    unset($_SESSION['token']);
+    unset($_SESSION['timeslot']);
 }
 
 /* retrieving token procedure */
