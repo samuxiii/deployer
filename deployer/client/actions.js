@@ -65,15 +65,28 @@ $(document).ready(function() {
         });
     });
 
-    $('button#deploy').click(function() {
-        $.ajax({
-            url: url_server,
-            type: "POST",
-            data: {"action":"deploy"},
-            success: function(data){
-                $('div#result-deploy').html(data);
-                console.log(data);
-            }
+    $('button#deploy').on('click', function(e) {
+      e.preventDefault();
+      
+      //change modal text info
+      $('#confirm .modal-body').text("Old data will be deleted before deploying the last version.")
+      
+      //open modal
+      $('#confirm').modal({
+          backdrop: 'static', //no click outside the modal
+          keyboard: false //no goes back when ESC is pressed
+        })
+        //if yes, perform operation
+        .one('click', '#yes', function(e) {
+            $.ajax({
+                url: url_server,
+                type: "POST",
+                data: {"action":"deploy"},
+                success: function(data){
+                    $('div#result-deploy').html(data);
+                    console.log(data);
+                }
+            });
         });
     });
 
