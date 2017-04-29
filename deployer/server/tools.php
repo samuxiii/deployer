@@ -76,6 +76,10 @@ if (isset($_POST['action'])) {
         case 'update':
             $tool->update();
             break;
+        case 'link':
+            /* TODO: return empty if the directory doesn't exist */
+            echo "../server/".$project;
+            break;
         default:
             $tool->print_("Access denied. Function not recognized!");
     }

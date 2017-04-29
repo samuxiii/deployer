@@ -25,7 +25,20 @@ $(document).ready(function() {
         token = token_;
         console.log(token);
     }
+    
+    /* load link of deployed project */
+    /*TODO: enable at the same time the buttons*/
+    $.ajax({
+        url: url_server,
+        type: "POST",
+        data: { "action": "link" },
+        success: function (data) {
+            $("#language-link").attr("href", data);
+            console.log("link updated to " + data);
+        }
+    });
 
+    /* login behaviour */
     $('#login').click(function() {
         window.location.href = url_oauth;
     });
