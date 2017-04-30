@@ -61,9 +61,11 @@ $repo = "BetWrapTeam/betawrapper.git";
 /*
  * According to the action received the related Tools method is called
  */
-if (isset($_POST['action'])) {
+if (isset($_POST['action'])) 
+{
     $action = $_POST['action'];
-    switch($action) {
+    switch($action) 
+    {
         case 'clone':
             $tool->clone($project, $repo, $_POST['token']);
             break;
@@ -77,11 +79,20 @@ if (isset($_POST['action'])) {
             $tool->update();
             break;
         case 'link':
-            /* TODO: return empty if the directory doesn't exist */
-            echo "../server/".$project;
+            getPath($project);
             break;
         default:
             $tool->print_("Access denied. Function not recognized!");
+    }
+}
+
+/* project functions */
+function getPath($project) 
+{
+    $path = "../server/".$project;
+    if (file_exists($path))
+    {
+        echo "../server/".$project;
     }
 }
 
