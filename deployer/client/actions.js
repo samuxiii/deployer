@@ -1,7 +1,7 @@
 /*
  * TODO: the url server should be in a config file 
  */
-var url_server = "../server/tools.php";
+var url_server = "../server/server.php";
 var url_oauth = "../server/access.php";
 var token = "";
 
