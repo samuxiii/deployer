@@ -1,14 +1,15 @@
 <?php
 
 require_once('Tools.php');
-
-/* main */
 $tool = new Tools;
 
-/*
- * TODO: verify if config.php is initialized to continue..
- */
- 
+//check config.php exists
+if (!file_exists('config.php'))
+{
+    $tool->print_("Configuration file not found.");
+    return;
+}
+
 $config = include('config.php');
 $deploy_path = $config->deploy_path;
 
