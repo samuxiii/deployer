@@ -27,7 +27,6 @@ $(document).ready(function() {
     }
     
     /* load link of deployed project */
-    /*TODO: enable at the same time the buttons*/
     $.ajax({
         url: url_server,
         type: "POST",
