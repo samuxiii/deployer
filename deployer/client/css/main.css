@@ -6,6 +6,11 @@ pre {
     margin: 2px;
 }
 
+.vertical-center {
+  display: flex;
+  align-items: center;
+}
+
 #login {
     margin-top: 10px;
     float:right;

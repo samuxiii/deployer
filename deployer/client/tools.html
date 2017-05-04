@@ -18,11 +18,21 @@
 
     <body>
         <div class="container">
-            <button type="button" class="btn btn-default btn-sm" data-toggle="tooltip" data-placement="bottom" title="Using Bitbucket!" id="login">
-                <span class="glyphicon glyphicon-log-in"></span> Log in
-            </button>
             
-            <h2><img src="logo.png" width="10%">Deployer</h2>
+            <div class="row vertical-center">
+                <div class="col-xs-3 col-sm-1">
+                    <img src="logo.png" class="img-responsive">
+                </div>
+                <div class="col-xs-6 col-sm-1">
+                    <h2>Deployer</h2>
+                </div>
+                <div class="col-xs-3 col-sm-10">
+                    <button type="button" class="btn btn-default btn-sm" data-toggle="tooltip" data-placement="bottom" title="Using Bitbucket!" id="login">
+                        <span class="glyphicon glyphicon-log-in"></span> Log in
+                    </button>
+                </div>
+            </div>
+              
             <div class="panel panel-default">
                 <button type="button" class="btn btn-danger" id="update">Update BWDeployer</button>
                 <div id="result-update"></div>
