@@ -11,7 +11,7 @@ Currently the implemented 'update' option forces to store the whole git folder u
 ```
 
 ### Access the application
-* Open browser http://localhost/lab/client/tools.html
+* Open browser http://localhost/deployer/client/tools.html
 
 ### Important
 In order to perform 'git' operations in a correct way, the apache user has to be included into *sudoers*.

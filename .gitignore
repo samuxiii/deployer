@@ -4,4 +4,4 @@ config.php
 
 # dependencies by composer #
 ############################
-deployer/server/vendor/*
+server/vendor/*
