@@ -28,4 +28,4 @@ www-data ALL = (www-data) NOPASSWD: /usr/bin/git
 * UX
   + ~~Upon entering, click 'log in' in order to gain access in git service and enable the operation buttons.~~
   + ~~Click in buttons to perform the options.~~
-  + Find a way to ease the procedure to add a new project.
+  + ~~Find a way to ease the procedure to add a new project.~~
