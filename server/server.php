@@ -36,8 +36,8 @@ if (isset($_POST['action']))
         case 'update':
             $tool->update();
             break;
-        case 'link':
-            getPath($project);
+        case 'project':
+            getProject();
             break;
         default:
             $tool->print_("Access denied. Function not recognized!");
@@ -45,13 +45,18 @@ if (isset($_POST['action']))
 }
 
 /* project functions */
-function getPath($project) 
+function getProject() 
 {
+    global $project, $name, $path;
+    
     $path = "../server/".$project;
-    if (file_exists($path))
+    if (!file_exists($path))
     {
-        echo "../server/".$project;
+        $path = "#";
     }
+    $json = '{"name":"'.$name.'", "path":"'.$path.'"}';
+    header('Content-Type: application/json');
+    echo json_encode($json);
 }
 
 ?>

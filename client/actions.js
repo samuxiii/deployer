@@ -26,14 +26,26 @@ $(document).ready(function() {
         console.log(token);
     }
     
-    /* load link of deployed project */
+    /* load info of deployed project */
     $.ajax({
         url: url_server,
         type: "POST",
-        data: { "action": "link" },
+        data: { "action": "project" },
         success: function (data) {
-            $("#language-link").attr("href", data);
-            console.log("link updated to " + data);
+            json = JSON.parse(data);
+            
+            //save link structure
+            title = $("#project-name");
+            link = $('#project-link');
+            
+            //update
+            capName = json.name.charAt(0).toUpperCase() + json.name.slice(1);
+            title.text(capName + " App");
+            if (json.path != "#") {
+                link.attr("href", json.path);
+                title.append(link);
+                console.log("link updated to " + json.path);
+            }
         }
     });
 
