@@ -1,6 +1,6 @@
 <?php
 
-$url = 'http://domain.com';
+$url = 'http://example-domain.com';
 
 return (object) array(
     'url_home' => $url.'/deployer/client/tools.html',
@@ -9,6 +9,10 @@ return (object) array(
         'clientId' => '',
         'clientSecret' => '',
         'redirectUri' => $url.'/deployer/server/access.php'
+        ),
+    'project' => array(
+        'name' => 'project-example-name',
+        'repository' => 'repository-example-name/project-example-name.git'
         )
 );
 

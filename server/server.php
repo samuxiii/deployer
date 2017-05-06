@@ -12,10 +12,9 @@ if (!file_exists('config.php'))
 
 $config = include('config.php');
 $deploy_path = $config->deploy_path;
-
-//for the time being the project definition is here
-$project = $deploy_path."/language/";
-$repo = "BetWrapTeam/betawrapper.git";
+$name = $config->project['name'];
+$repo = $config->project['repository'];
+$project = "${deploy_path}/${name}/";
 
 /*
  * According to the action received the related Tools method is called
