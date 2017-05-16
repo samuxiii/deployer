@@ -24,7 +24,7 @@ www-data ALL = (www-data) NOPASSWD: /usr/bin/git
 * ~~Also it's going to be necessary to create a service which retrieves the correct oauth token from the git service.
   Note: The current approach is a php file that retrieves the token according to the configuration.
   Timeout to remove the token when it has expired.~~
-* ~~Creating a config.json, config.php or both so that the urls definitions can be stored and secured.~~ ~~Check if config.php has been initialized stopping the server and notifying to the user.
+* ~~Creating a config.json, config.php or both so that the urls definitions can be stored and secured. Check if config.php has been initialized stopping the server and notifying to the user.~~
 * UX
   + ~~Upon entering, click 'log in' in order to gain access in git service and enable the operation buttons.~~
   + ~~Click in buttons to perform the options.~~
